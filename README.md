@@ -1,5 +1,9 @@
 # Math Test Generator
-automatically generate math problems and output pdf papers(exam and solution).
+Automatically generate math problems and output pdf papers(exam and solution).
+
+数学の問題を自動生成し、PDFにて問題と回答を出力します。
+
+
 
 # Requirements
 
