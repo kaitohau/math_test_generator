@@ -1,4 +1,4 @@
-# from latexfile import LatexFile
+import sys
 import sympy as sym
 import numpy as np
 import random
@@ -30,4 +30,11 @@ def main(exam_num=50, test_type="Quadratic"):
     sol.compile()
 
 if __name__ == '__main__':
-    main(50, test_type="Quadratic")
+    num=50
+    test_type = "Quadratic"
+    if len(sys.argv)>1:
+        if sys.argv[1]:
+            num = int(sys.argv[1])
+        if sys.argv[2]:
+            test_type = sys.argv[2]
+    main(num, test_type)
