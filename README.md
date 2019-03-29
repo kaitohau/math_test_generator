@@ -38,3 +38,9 @@ python gen
 python gen 100 Factor
 ```
 
+# How to Add Test Type
+
+- Add generator in [math_test_generator](https://github.com/kaitohau/math_test_generator)/[gen](https://github.com/kaitohau/math_test_generator/tree/master/gen)/**generator.py**
+  - write rules for each test type: ie. if you don't need rules just copy and rename.
+- Add math class in [math_test_generator](https://github.com/kaitohau/math_test_generator)/[gen](https://github.com/kaitohau/math_test_generator/tree/master/gen)/**math.py**
+- Import added module on  **__init__.py** and **gen.py**
