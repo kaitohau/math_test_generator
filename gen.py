@@ -5,28 +5,39 @@ import random
 from gen import gen_Expand, gen_Factor, gen_Quadratic, LatexFile
 
 def main(exam_num=50, test_type="Quadratic"):
-    eqs = []
+    """
+    test_type: Quadratic or Factor
+    
+    """
 
+    eqs = []# array of eqation 
+
+    # genretor for each test type
     if test_type == "Quadratic":
         for i in range(exam_num):
-            eq = gen_Quadratic(eqs)
+            eq = gen_Quadratic(eqs)#genretor
             eqs.append(eq)
 
     elif test_type == "Factor":
         for i in range(exam_num):
-            eq = gen_Factor(eqs)
-            eqs.append(eq)
+            eq = gen_Factor(eqs)  # genretor
+            eqs.append(eq)  
 
+    # make Tex file
     exam = LatexFile(test_type + '_exam', title='計算ドリル', point=9)
     sol = LatexFile(test_type + '_solution', title='計算ドリル答え', point=9)
-    exam.begin_cols()
-    sol.begin_cols()
-    for e in eqs:
+    exam.begin_cols()# add multicol
+    sol.begin_cols()  # add multicol
+
+    for e in eqs:  # add item to tex
+        # sym.latex isconvert math eqation to tex
         exam.add_eq(' ' + sym.latex(e.exps))
-        sol.add_eq(' ' + sym.latex(e.equation()))
-    exam.end_cols()
+        sol.add_eq(' ' + sym.latex(e.equation())) 
+
+    exam.end_cols()  # add multicol
     sol.end_cols()
-    exam.compile()
+
+    exam.compile()  # make tex file and pdf
     sol.compile()
 
 if __name__ == '__main__':
