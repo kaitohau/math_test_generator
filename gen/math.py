@@ -53,7 +53,6 @@ class Factor:
 class Expand:
     def __init__(self, eq):
 
-        # 記号xを定義
         sym.var('x')
 
         self.a = sym.Rational(a)
