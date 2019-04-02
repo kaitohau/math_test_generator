@@ -11,9 +11,9 @@ def gen_Quadratic(eqs):
         stop_step += 1 #avoid inf loop
 
         flag_same_eq = False
-        C1, C2, C3 = random.randint(1, 2), random.randint(
-            1, 9), random.randint(1, 9)  # set random coefficient
-        eq = math.Quadratic(C1, C2, C3)  # setup instance
+        C1, C2 =random.randint(
+            -20, 20), random.randint(-50, 50)  # set random coefficient
+        eq = math.Quadratic(C1, C2)  # setup instance
 
         for i in eqs:
             if i.exps == eq.exps:# check same or not

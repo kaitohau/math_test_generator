@@ -2,18 +2,19 @@ import sympy as sym
 
 class Quadratic:
     
-    def __init__(self, a, b, c):
+    def __init__(self, b, c):
 
         # define x 
         sym.var('x')
 
         # strict to use rational有理数のこと
-        self.a = sym.Rational(a)
+        # self.a = sym.Rational(a)　Too difficult to solve for student
         self.b = sym.Rational(b)
         self.c = sym.Rational(c)
         
         # Quadratic func
-        self.exps = self.a*x**2 + self.b*x + self.c
+        # self.exps = self.a*x**2 + self.b*x + self.c Too difficult to solve for student
+        self.exps = x**2 + self.b*x + self.c
         
     # return vule
     def value(self, t):
