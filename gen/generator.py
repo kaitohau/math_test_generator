@@ -30,6 +30,29 @@ def gen_Quadratic(eqs):
             raise Exception('Its inf loop ! Too many exam_num')
 
 
+def gen_plus_minus(eqs):
+    eq = 0
+    stop_step = 0
+    while True:
+        stop_step += 1  # avoid inf loop
+
+        flag_same_eq = False
+        C1, C2, C3 = random.randint(
+            -50, 50), random.randint(
+            -50, 50), random.randint(-50, 50)  # set random coefficient
+        eq = math.plus_minus(C1, C2, C3)  # setup instance
+
+        for i in eqs:
+            if i.exps == eq.exps:  # check same or not
+                flag_same_eq = True
+                break
+        if not flag_same_eq:
+            return eq
+        if stop_step > 100:
+            raise Exception('Its inf loop ! Too many exam_num')
+
+
+
 def gen_Factor(eqs):
     stop_step = 0
     eq = 0

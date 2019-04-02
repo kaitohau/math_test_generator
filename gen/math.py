@@ -31,6 +31,27 @@ class Quadratic:
         return sym.solve(eq)
 
 
+class plus_minus:
+    
+    def __init__(self, a, b,c):
+
+        # strict to use rational有理数のこと
+        self.a = sym.Rational(a)
+        self.b = sym.Rational(b)
+        self.c = sym.Rational(c)
+
+        '''
+         To make this "-2-1" sym.var(str(-2))+sym.var(str(-1))>>-2-1
+         If you just write exps=a+b >> -3 so you have to use sym.var
+        '''
+        self.exps = sym.var(str(a)) + sym.var(str(b)) + sym.var(str(c))
+
+    # return solution
+    def equation(self):
+        eq =self.a + self.b + self.c
+        return eq
+
+
 class Factor:
     def __init__(self, a, b, c):
 

@@ -2,7 +2,7 @@ import sys
 import sympy as sym
 import numpy as np
 import random
-from gen import gen_Expand, gen_Factor, gen_Quadratic, LatexFile
+from gen import gen_Expand, gen_Factor, gen_Quadratic,gen_plus_minus, LatexFile
 
 def main(exam_num=50, test_type="Quadratic"):
     """
@@ -21,6 +21,10 @@ def main(exam_num=50, test_type="Quadratic"):
     elif test_type == "Factor":
         for i in range(exam_num):
             eq = gen_Factor(eqs)  # genretor
+            eqs.append(eq)  
+    elif test_type == "plus_minus":
+        for i in range(exam_num):
+            eq = gen_plus_minus(eqs)  # genretor
             eqs.append(eq)  
 
     # make Tex file
