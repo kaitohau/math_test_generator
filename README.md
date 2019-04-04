@@ -33,6 +33,7 @@ python gen
   - Test type
     - Quadratic (default)
     - Factor
+    - plus-minus
 
 ```
 python gen 100 Factor
