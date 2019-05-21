@@ -18,9 +18,10 @@ class LatexFile:
         \\begin{{document}}\
     ''')
 
-    def __init__(self, fname, title=None, point=10):
+    def __init__(self, dpath, fname, title=None, point=10):
         self.title = title
         self.text = []
+        self.dpath = dpath
         self.fname = fname
         self.point = point
         if title is None:
@@ -66,13 +67,9 @@ class LatexFile:
     def compile(self, remove=True):
         with open(self.fname + '.tex', mode='wt') as fout:
             fout.write(self.output())
-        command1 = 'platex {}.tex'.format(self.fname)
-        print(command1.split(' '))
+        command1 = 'ptex2pdf -l -output-directory {} {}.tex'.format(self.dpath, self.fname)
         subprocess.run(command1.split(' '))
-        command2 = "dvipdfmx {}".format(self.fname)
-        print(command2.split(' '))
-        subprocess.run(command2.split(' '))
         if remove is True:
-            rmv_list = [self.fname + x for x in ('.aux', '.log', '.dvi')]
+            rmv_list = [self.dpath +"/"+self.fname + x for x in ('.aux', '.log')]
             for rmv_fname in rmv_list:
                 os.remove(rmv_fname)
