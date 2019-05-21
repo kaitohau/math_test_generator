@@ -4,7 +4,10 @@ import numpy as np
 import random
 from gen import gen_Expand, gen_Factor, gen_Quadratic,gen_plus_minus, LatexFile
 
-def main(exam_num=50, test_type="Quadratic"):
+#dpath_exam : output directory path of exam
+#dpath_solution : output directory path of solution
+#fname : output file name
+def main(dpath_exam, dpath_solution, fname, exam_num=50, test_type="Quadratic"):
     """
     test_type: Quadratic or Factor
     
@@ -28,8 +31,8 @@ def main(exam_num=50, test_type="Quadratic"):
             eqs.append(eq)  
 
     # make Tex file
-    exam = LatexFile(test_type + '_exam', title='計算ドリル', point=9)
-    sol = LatexFile(test_type + '_solution', title='計算ドリル答え', point=9)
+    exam = LatexFile(dpath_exam, fname, title='計算ドリル', point=9)
+    sol = LatexFile(dpath_solution, fname, title='計算ドリル答え', point=9)
     exam.begin_cols()# add multicol
     sol.begin_cols()  # add multicol
 
@@ -48,8 +51,8 @@ if __name__ == '__main__':
     num=50
     test_type = "Quadratic"
     if len(sys.argv)>1:
-        if sys.argv[1]:
-            num = int(sys.argv[1])
-        if sys.argv[2]:
-            test_type = sys.argv[2]
-    main(num, test_type)
+        if sys.argv[4]:
+            num = int(sys.argv[4])
+        if sys.argv[5]:
+            test_type = sys.argv[5]
+    main(sys.argv[1], sys.argv[2], sys.argv[3], num, test_type)
